@@ -1,0 +1,40 @@
+
+
+Thanks for your interest in applying to Mad Street Den.
+You have been shortlisted for the role of Platform Engineer!
+As a next step, complete the following task and send it back to us on or before 8th October, Tuesday.
+
+Task:
+
+Build a streaming application which reads data from realtime bitcoin transactions and host it in GitHub.
+
+1. Receive streaming bitcoin transaction data from here: https://www.blockchain.com/api/api_websocket
+2. Stream the transaction log to kafka
+3. Analyze the transactions in realtime and count the rate of transactions on a given minute, save this in redis
+4. Consume the transactions from a kafka consumer and persist only the transactions made in the last 3 hours
+5. Build a rest api in any python framework to read from redis to show the latest transactions
+
+
+/show_transactions/
+Display latest 100 transactions
+
+
+/transactions_count_per_minute/{min_value}
+Display number of transactions per minute for the last hour
+
+Example:
+minute counts
+1:01   102
+1:02   98
+1:03   113
+...
+...
+
+
+/high_value_addr
+Display the bitcoin addresses which has the most aggregate value in transactions in the last 3 hours.
+
+Example:
+address                                 total_value
+35wEodJ1x64uUy3PkenD1gT3tnrHhQSNTG      1790000
+3AL3peHJm1FpFAQ1Hp9rFBmt2cbp1deXHX      490000
