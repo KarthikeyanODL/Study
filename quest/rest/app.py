@@ -12,18 +12,20 @@ CORS(app)
 def get_value_addr():
     if request.method == 'GET':
         try:
-             return jsonify(status='Models are trained', code=200)
+             addr = db.get_high_value_addr()
+             return jsonify(status=addr, code=200)
         except Exception as exception:
              return jsonify(status=exception.args[0], code=500)
     return jsonify(status='Invalid request type', code=500)
 
 
 
-@app.route("/transactions_count_per_minute/<min_value>", methods=['GET'])
-def get_transaction():
+@app.route("/transactions_count_per_minute/<minvalue>", methods=['GET'])
+def get_transaction(minvalue):
     if request.method == 'GET':
         try:
-             return jsonify(status='Models are trained', code=200)
+             result = db.get_transactions_per_minute(minvalue)
+             return jsonify(status= result, code=200)
         except Exception as exception:
              return jsonify(status=exception.args[0], code=500)
     return jsonify(status='Invalid request type', code=500)
@@ -35,8 +37,8 @@ def get_transaction():
 def show_transaction():
     if request.method == 'GET':
         try:
-             xxx = db.get_transactions()
-             return jsonify(status= xxx, code=200)
+             transactions = db.get_transactions()
+             return jsonify(status= transactions, code=200)
         except Exception as exception:
              return jsonify(status=exception.args[0], code=500)
     return jsonify(status='Invalid request type', code=500)

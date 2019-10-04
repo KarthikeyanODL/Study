@@ -4,43 +4,24 @@ try:
 except ImportError:
     import _thread as thread
 import time
-import redisclient
-count = 0
+import kafka_producer
 
 def on_message(ws, message):
-    global count
-    redisclient.save_data(str(message))
-    count = count +1
-   
-def stopwatch(seconds):
-    start = time.time()
-    time.clock()
-    elapsed = 0   
-    while elapsed < seconds:
-        elapsed = time.time() - start
-        ws.send('{"op": "unconfirmed_sub"}') 
-        print "loop cycle time: %f, seconds count: %02d" % (time.clock() , elapsed)
-        time.sleep(1)
-    minutes = ((time.time()- start)/60)
-    return  minutes     
-    
+    print(message)
+    kafka_producer.transaction_producer(message)
+
 def on_error(ws, error):
     print(error)
 
 def on_close(ws):
-    global count
-    print(count)
     print("### closed ###")
 
 def on_open(ws):
     def run(*args):
-        #while True:
-        global count
-        for i in range(2):            
+        while True:
+        #for i in range(3):
             time.sleep(1)
-            minutes = stopwatch(60)
-            redisclient.rate_of_transact(minutes, count)
-            count = 0
+            ws.send('{"op": "unconfirmed_sub"}')
         time.sleep(1)
         ws.close()
         print("thread terminating...")
