@@ -1,0 +1,24 @@
+logstash
+
+input {
+  kafka {
+    codec => "json"
+    bootstrap_servers => "dt-service:9092"
+    topics => ["test-othubadp-001_in"]
+  }
+}
+
+filter {
+}
+
+output {
+  stdout { codec => rubydebug }
+  elasticsearch {
+    hosts => "db-service:9200"
+    index => "test-othubadp-001_in-%{+YYYY.MM.dd}"
+  }
+}
+
+
+------------
+
