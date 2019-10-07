@@ -1,8 +1,8 @@
->	K8s, java, python,GoLang, Nodejs, Docker, SDN, ansible, Block chain,REST
->	Prometheus, Metric server, Kafka, CI/CD, elastic search, Logstash, Kibana
->	ONAP,MEC, DG, ODL,Alexa
->	MongoDB, MySQL, Git
->	To know openstack, monitoring tools, open shift , Mesos, other cloud/k8s related road maps
+	K8s, java, python,GoLang, Nodejs, Docker, SDN, ansible, Block chain,REST
+	Prometheus, Metric server, Kafka, CI/CD, zookeeper, elastic search, Logstash, Kibana
+	ONAP, MEC, DG, ODL, Alexa
+	MongoDB, MySQL, Git
+	To know openstack, monitoring tools, open shift , Mesos, other cloud/k8s related road maps
 
 Proj at Wipro : 
 Names:      Flow pusher in ODL, Fabric configuration using SDN
@@ -15,7 +15,12 @@ Key words:   K8s, Docker, rest, sdn, onap, mec, python
 
 Proj at Hitachi:
   Names:      IoT data handler, Hp-App
-  Key words:   k8s, docker, rest, golang, shell, block chain, Elasticsearch, Logstash, kibana, zookeeper, nodejs, 
+Key words:   k8s, docker, rest, golang, shell, block chain, Elasticsearch, Logstash, kibana, zookeeper, nodejs, 
 
 JD 
-•	K8s, openstack, mongoDB, the principles of 12-Factor Apps, container solution, cloud computing technologies and current computing trends, understand SDn and Container networking (weavenet) Git, jenkin, CI/CD, automated test, trouble shoot k8s prblms, 
+•	K8s, openstack, mongoDB, the principles of 12-Factor Apps, container solution, cloud computing technologies and current computing trends, understand SDN and Container networking (weavenet) Git, jenkin, CI/CD, automated test, trouble shoot k8s prblms, 
+Explanation:
+1.	IoT data handler is a internal project that collects the IoT simulated data and visualize it in a kibana dashboard. We use zookeeper, kafka, logstash, elastic search, kibana. All the applications are developed as container microservices and deployed in k8s cluster.                  Need to know – zookeerper, kafka, logstash, ELK, source code, k8s files, docker 
+Hp – App
+2.	Block chain application for hitachi employees, it’s a usecase project. Activity based points are allocated to the employees. Ex cleaning, gardening, etc. Points ll be credited to their account which ll be used to buy smething from hitachi store. Ex chocklate, snacks.                                                                  We also used QR code to detect the store and pay from our account. My job is chain code development, client node SDK, middle ware development. And containerize the web application and deploy it in k8s cluster.                                                              Need to know – block chain, k8s files, docker, goLang, nodeJS, test, shell, unit testing, bug fixes        
+
