@@ -1,0 +1,17 @@
+Maualy solve N/w solution
+1.	We have 3 nodes, all assigned IP
+2.	When containers are created, k8s create namespace for them
+3.	To enable communicate between them we attach these namespaces to the network. Like in Linux – Bridge Network
+4.	Create Bridge network in each node and bring them up
+5.	Assign Ip to the Bridge Network . we decide each bridge n/w has its own subnet
+6.	Assign IP addres for the Bridge Interface
+Bridge script
+7.	Create a wire/link
+8.	Attach the wire one end at the container another end at the bridge
+9.	Assign the IP and add the default route – gateway
+10.	Bring up the interface
+Enable communication between one pod to another pod that is in another Node
+11.	Add IP route -> via node 2 . then pod from node1 can be communicate with pod in node2
+12.	Add IP route in all the node. 
+
+When kubelet creates the container , it looks for the script and runs the script
