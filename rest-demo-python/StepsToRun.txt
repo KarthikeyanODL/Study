@@ -1,0 +1,67 @@
+Restful WebService has two parts Rest Server & Rest Client
+
+Rest Server
+-----------
+
+# Step 1. install Rest Server & dependencies
+    cd rest-server
+    pip install -r requirements.txt
+
+# Step 2. Start the Rest Server
+    python app.py
+
+
+Explanation :
+
+We have implemented two Restful Webservice API using python.After implementation, 
+we deployed the python code on Flask server.
+
+API -> /api/sites/list  
+       /api/{apikey}/sites/list
+code -> python
+server -> flask running on  port :8888
+
+
+ Rest Client
+------------
+
+we can test the Restful Webservice API with any rest client.
+Ex: Browser(only GET request),curl, Postman application, nodejs, python, java, .net, Golang etc.,
+
+We need IP of the server, port and URL of the exposed Rest API
+In our case , server and client is running in same machine. so 
+IP -> localhost
+port -> :8888
+API url -> /api/sites/list
+       /api/{apikey}/sites/list
+ 
+
+we will test the Restful Webservice API using python
+
+# Step 3.  run the below command
+    python rest_client_simple.py
+
+# Step 3a(optional) the same program but written with function for good programming practise.
+   python rest_client_with_function.py
+
+
+Thats all, we have tested the exposed REST API with python
+
+
+Rest Client with Curl
+----------------------
+This is the simplest way to test the API
+we can also test the Restful Webservice API with curl command
+# Step 4.  run the below command one by one to access the API 
+       curl http://localhost:8888/api/sites/list
+       curl http://localhost:8888/api/199208/sites/list
+here 199208 is the key.
+
+
+
+
+
+
+
+
+
