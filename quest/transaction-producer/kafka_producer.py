@@ -13,10 +13,10 @@ def transaction_producer(transaction):
   producer = KafkaProducer(retries=5)
 
 def transaction_rate(msg_count):
-  print ("msg count ", msg_count)
+  data = str(msg_count)
   producer = KafkaProducer(bootstrap_servers=['localhost:9092'])
   producer = KafkaProducer(value_serializer=lambda m: json.dumps(m).encode('ascii'))
-  producer.send('transaction-rate', {'minute':1,'msg_count': msg_count})
+  producer.send('transaction-rate', data)
   producer.flush()
   producer = KafkaProducer(retries=5)
 

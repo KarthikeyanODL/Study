@@ -8,7 +8,7 @@ import kafka_producer
 msg_count = 0
 
 def on_message(ws, message):
-    #print(message)
+    print(message)
     kafka_producer.transaction_producer(message)
     global msg_count
     msg_count = msg_count + 1
@@ -22,13 +22,13 @@ def on_close(ws):
 def on_open(ws):
     def run(*args):
         while True:
-        #for i in range(3):
+           # run the timer for 60 secounds to calculate transaction_rate
            endtime = time.time() + 60
            while time.time() < endtime:
              time.sleep(1)
              ws.send('{"op": "unconfirmed_sub"}')
            global msg_count
-           # every minute calculate transaction rate and produce it to kafka
+           # every minute calculate transaction_rate and produce it to kafka
            kafka_producer.transaction_rate(msg_count)
            msg_count = 0
         time.sleep(1)
