@@ -1,0 +1,394 @@
+{
+	"id": "51205144-b2b2-de3e-715c-a6353cc2fa87",
+	"name": "contract",
+	"description": "",
+	"order": [
+		"e7e9213e-2cbb-cc2d-c1c0-cf9c3c4e9401",
+		"db5bb0d0-5caa-ed23-6305-ea64a101da0a",
+		"9198594d-db34-109a-259e-4d6280066d16",
+		"46b7a0ea-a027-9cd9-2a94-c2dfaee7e632",
+		"3a8e8a56-cb83-5b47-8814-9ab7d9c990a0",
+		"0ee5489f-26ae-18ad-f8db-d0f0da7f2204",
+		"e585da7e-9b25-1e49-42c0-5be04104a622",
+		"b8c628f7-aba3-b7fa-8b78-b3b3f9a400f8",
+		"f9615e39-2e1a-052f-bffb-7205c6c44d96",
+		"71f7301f-c1cc-55bf-f52c-facb2bbe412d",
+		"3df7a336-e70c-eb3d-af13-b66736c3a678"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1558672500220,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "0ee5489f-26ae-18ad-f8db-d0f0da7f2204",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/employee/create",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "51205144-b2b2-de3e-715c-a6353cc2fa87",
+			"data": [
+				{
+					"key": "empname",
+					"value": "ov",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "empid",
+					"value": "77",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "salary",
+					"value": "250000",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "workHrs",
+					"value": "9",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "empType",
+					"value": "permanent",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "parentCompany",
+					"value": "hitachi",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "currentCompany",
+					"value": "hitachi",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/employee/create",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1559009588800,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "3a8e8a56-cb83-5b47-8814-9ab7d9c990a0",
+			"headers": "",
+			"headerData": [],
+			"url": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/get/employees",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1559018681471,
+			"name": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/employee/get",
+			"description": "",
+			"collectionId": "51205144-b2b2-de3e-715c-a6353cc2fa87",
+			"responses": []
+		},
+		{
+			"id": "3df7a336-e70c-eb3d-af13-b66736c3a678",
+			"headers": "",
+			"headerData": [],
+			"url": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/employee/company?company=human",
+			"queryParams": [
+				{
+					"key": "company",
+					"value": "human",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1559018685273,
+			"name": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/employee/company?company=human",
+			"description": "",
+			"collectionId": "51205144-b2b2-de3e-715c-a6353cc2fa87",
+			"responses": []
+		},
+		{
+			"id": "46b7a0ea-a027-9cd9-2a94-c2dfaee7e632",
+			"headers": "",
+			"headerData": [],
+			"url": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/employee/add",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "51205144-b2b2-de3e-715c-a6353cc2fa87",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/employee/add",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1558936804320,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "71f7301f-c1cc-55bf-f52c-facb2bbe412d",
+			"headers": "",
+			"headerData": [],
+			"url": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/userquery?empType=contract",
+			"queryParams": [
+				{
+					"key": "empType",
+					"value": "contract",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1559018687958,
+			"name": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/userquery?empType=contract",
+			"description": "",
+			"collectionId": "51205144-b2b2-de3e-715c-a6353cc2fa87",
+			"responses": []
+		},
+		{
+			"id": "9198594d-db34-109a-259e-4d6280066d16",
+			"headers": "",
+			"headerData": [],
+			"url": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/exportwallet/org/acme/user/Admin",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "51205144-b2b2-de3e-715c-a6353cc2fa87",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/exportwallet/org/acme/user/Admin",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1558932652894,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "b8c628f7-aba3-b7fa-8b78-b3b3f9a400f8",
+			"headers": "",
+			"headerData": [],
+			"url": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/employee/1/history",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "51205144-b2b2-de3e-715c-a6353cc2fa87",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/employee/1/history",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1559016630202,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "db5bb0d0-5caa-ed23-6305-ea64a101da0a",
+			"headers": "",
+			"headerData": [],
+			"url": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/listuser",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1558933171512,
+			"name": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/listuser",
+			"description": "",
+			"collectionId": "51205144-b2b2-de3e-715c-a6353cc2fa87",
+			"responses": []
+		},
+		{
+			"id": "e585da7e-9b25-1e49-42c0-5be04104a622",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/employee/transfer",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "51205144-b2b2-de3e-715c-a6353cc2fa87",
+			"data": [
+				{
+					"key": "empid",
+					"value": "1",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "fromCompany",
+					"value": "human",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "toCompany",
+					"value": "hitachi",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/employee/transfer",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1559010321280,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "e7e9213e-2cbb-cc2d-c1c0-cf9c3c4e9401",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/adduser",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "username",
+					"value": "User1",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "orgName",
+					"value": "acme",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1558932662661,
+			"name": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/adduser",
+			"description": "",
+			"collectionId": "51205144-b2b2-de3e-715c-a6353cc2fa87",
+			"responses": []
+		},
+		{
+			"id": "f9615e39-2e1a-052f-bffb-7205c6c44d96",
+			"headers": "",
+			"headerData": [],
+			"url": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/employee/get/2",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "51205144-b2b2-de3e-715c-a6353cc2fa87",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/employee/get/2",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1559017863929,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}

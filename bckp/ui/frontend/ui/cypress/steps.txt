@@ -1,0 +1,14 @@
+Run Test-cases:
+----------------
+1. cypress is already installed with this repo, Just run the below commands 
+   /frontend/ui/node_modules/.bin/cypress run  -> It will start the testing and create snapshots and records video as well
+
+
+Installation: (Its for your information,no need to run with this repository)
+--------------
+1. npm install cypress --save-dev
+2. create cypress.json and paste {"chromeWebSecurity": false}
+3. /frontend/ui/node_modules/.bin/cypress open
+4. if you are using VM,the GUI application will not be triggered,But the cypress boiler-plate code is created now
+5. cypress/integration/  -> delete sample test cases and write your own test cases file here.
+6. /frontend/ui/node_modules/.bin/cypress run  -> It will start the testing and create snapshots and records video as well

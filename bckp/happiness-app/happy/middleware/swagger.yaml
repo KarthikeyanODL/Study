@@ -1,0 +1,351 @@
+swagger: "2.0"
+info:
+  description: "API list for Happiness Application . These REST APIs are used to interact with block chain network to invoke/query chain code functionalities"
+  version: "1.0.0"
+  title: "Happiness Application"
+  #termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "dhandapani.karthikeyan.wb@hitachi.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "172-16-107-26.osz4.rdcloud.intra.hitachi.co.jp"
+basePath: "/api/v1"
+tags:
+- name: "User"
+  description: "Operations about user"
+  #externalDocs:
+    #description: "Find out more about information"
+    #url: ""
+- name: "History"
+  description: "Operations about History"
+schemes:
+#- "https"
+- "http"
+paths:
+
+
+  /users:
+
+    post:
+      tags:
+      - "User"
+      summary: "Register User"
+      description: "This API to register the user details"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        200:
+          description: OK
+          #schema:
+          # $ref: "#/definitions/ApiResponse"
+        201:
+          description: created
+          #schema:
+          #  $ref: "#/definitions/ApiResponse"
+        400:
+          description: Bad Request 
+        
+
+    get:
+      tags:
+      - "User"
+      summary: "Get users list"
+      description: "Api to retrieve all the users"
+      parameters:
+       - name: "startKey"
+         in: "query"
+         description: "User start key"
+         default: 20
+         required: false
+         type: "string"
+         #format: "int32"
+       - name: "endKey"
+         in: "query"
+         description: "user end key"
+         default: 20
+         required: false
+         type: "string"
+         #format: "int32"
+
+      produces:
+      - "application/xml"
+      - "application/json"
+
+      responses:
+        200:
+          description: OK
+          #schema:
+          # $ref: "#/definitions/ApiResponse"
+        201:
+          description: created
+          #schema:
+          #  $ref: "#/definitions/ApiResponse"
+        400:
+          description: Bad Request 
+
+  /users/{userId}:
+    get:
+      tags:
+      - "User"
+      summary: "Find user info by userID"
+      description: "Returns a single user details"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: "path"
+        description: "ID of user to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: OK
+          #schema:
+          # $ref: "#/definitions/ApiResponse"
+        201:
+          description: created
+          #schema:
+          #  $ref: "#/definitions/ApiResponse"
+        400:
+          description: Bad Request 
+
+    delete:
+      tags:
+      - "User"
+      summary: "Deletes a User"
+      description: "Api to delete a single user details"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: "path"
+        description: "user id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: OK
+          #schema:
+          # $ref: "#/definitions/ApiResponse"
+        201:
+          description: created
+          #schema:
+          #  $ref: "#/definitions/ApiResponse"
+        400:
+          description: Bad Request 
+  /users/{userId}/point:
+    post:
+      tags:
+      - "User"
+      summary: "Update user points "
+      description: "using userid, Updating user points"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: "path"
+        description: "ID of user to update points"
+        required: true
+        type: "integer"
+        format: "int64"
+
+      - name: "body"
+        in: "body"
+        description: "Points details"
+        required: true
+        schema:
+         $ref: "#/definitions/UpdatePoint"
+
+      responses:
+        200:
+          description: OK
+          #schema:
+          # $ref: "#/definitions/ApiResponse"
+        201:
+          description: created
+          #schema:
+          #  $ref: "#/definitions/ApiResponse"
+        400:
+          description: Bad Request 
+
+  /histories:
+    post:
+      tags:
+      - "History"
+      summary: "Add histories"
+      description: "add history data to the user"
+      produces:
+       - "application/xml"
+       - "application/json"
+      parameters:
+       - name: "body"
+         in: "body"
+         description: "ID of user to update points"
+         required: true
+         schema:
+          $ref: "#/definitions/History"
+
+      responses:
+       200:
+          description: OK
+          #schema:
+          # $ref: "#/definitions/ApiResponse"
+       201:
+          description: created
+          #schema:
+          #  $ref: "#/definitions/ApiResponse"
+       400:
+          description: Bad Request 
+    get:
+      tags:
+      - "History"
+      summary: "Get latest Histories"
+      description: "Fetch the latest histories according to the number passed"
+      produces:
+       - "application/xml"
+       - "application/json"
+      parameters:
+
+       - name: "startKey"
+         in: "query"
+         description: "user starting key"
+         required: false
+         type: "integer"
+         format: "int32"
+
+       - name: "endKey"
+         in: "query"
+         description: "user ending key"
+         required: false
+         type: "integer"
+         format: "int32"
+         
+       - name: "limit"
+         in: "query"
+         description: "limit number of results"
+         default: 20
+         required: false
+         type: "integer"
+         format: "int32"
+         
+      responses:
+        200:
+          description: OK
+          #schema:
+          # $ref: "#/definitions/ApiResponse"
+        201:
+          description: created
+          #schema:
+          #  $ref: "#/definitions/ApiResponse"
+        400:
+          description: Bad Request 
+          
+  /histories/{userId}:
+    get:
+      tags:
+      - "History"
+      summary: "Get latest Histories by userId"
+      description: "Fetch the latest histories according to the number passed"
+      produces:
+       - "application/xml"
+       - "application/json"
+      parameters:
+       - name: "limit"
+         in: "query"
+         description: "number of history to be retrieved"
+         default: 20
+         required: false
+         type: "integer"
+         format: "int64"
+
+       - name: "userId"
+         in: "path"
+         description: "Id of user"
+         required: true
+         type: "integer"
+         format: "int64"
+         
+      responses:
+       200:
+          description: OK
+          #schema:
+          # $ref: "#/definitions/ApiResponse"
+       201:
+          description: created
+          #schema:
+          #  $ref: "#/definitions/ApiResponse"
+       400:
+          description: Bad Request 
+
+definitions:
+
+
+  User:
+    type: "object"
+    properties:
+      userId:
+        type: "integer"
+        format: "int64"
+      balance:
+        type: "integer"
+        format: "int64"
+
+  History:
+     type: "object"
+     properties:
+      historyId:
+       type: "integer"
+       format: "int64"
+      userId:
+        type: "integer"
+        format: "int64"
+      points:
+        type: "integer"
+        format: "int64"
+      time:
+        type: "string"
+      actionId:
+        type: "integer"
+        format: "int64"
+      status:
+        type: "string"
+      details:
+        type: "string"
+
+  UpdatePoint:
+    type: "object"
+    properties:
+      points:
+        type: "integer"
+        format: "int64"
+      operator:
+        type: "string"
+
+  # ApiResponse:
+  #   type: "object"
+  #   properties:
+  #     code:
+  #       type: "integer"
+  #       format: "int32"
+  #     type:
+  #       type: "string"
+  #     message:
+  #       type: "string"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
+

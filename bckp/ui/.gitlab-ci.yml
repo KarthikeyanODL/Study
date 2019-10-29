@@ -1,0 +1,59 @@
+stages:
+  - test
+  - deploy
+
+test:
+  stage: test
+  script:
+    - echo test
+
+  after_script:
+    - echo after test
+  only:
+    - master
+      #- production-tmp
+  tags:
+    - test
+
+deploy_pre_production:
+  stage: deploy
+  script:
+    - echo deploy-pre-production
+
+    - cp frontend/ui/config/index_compose.js frontend/ui/config/index.js
+    - cp frontend/ui/config/dev.env.js-pp frontend/ui/config/dev.env.js
+
+    - export SDKHOST_IP=172.16.106.177
+  
+    - sudo -E docker-compose build
+    - sudo -E docker-compose up -d
+  only:
+    - pre-production
+  when: on_success
+  environment:
+    name: pre-production
+  tags:
+    - preproduction
+
+
+
+deploy_production:
+  stage: deploy
+  script:
+    - echo deploy-production
+
+    - cp frontend/ui/config/index_compose.js frontend/ui/config/index.js
+    - cp frontend/ui/config/dev.env.js-production frontend/ui/config/dev.env.js
+
+    - export SDKHOST_IP=172.16.106.159
+  
+    - sudo -E docker-compose build
+    - sudo -E docker-compose up -d
+  only:
+    - production
+  when: manual
+  environment:
+    name: production
+  tags:
+    - production
+

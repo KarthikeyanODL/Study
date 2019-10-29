@@ -1,0 +1,96 @@
+
+Steps to test "Happiness Application" chaincode
+#################################################
+
+Step 1: Login to Vm
+	    >> ssh -i .ssh/dev1 172.16.104.99 -l ubuntu
+
+Step 2: Check blockchain network is up and chaincode is deployed		
+        >> docker ps  
+		If (BC network)containers are not running,please skip the following commands and go to Step 3.
+        >> source set-env.sh acme
+        >> chain.sh list 
+           make sure "happy" chain code is instantiated
+        If chain code is already instantiated, skip Step 3, go to Step 4.
+
+Step 3: Start/reStart the network & deploy Chaincode 
+        >> dev-init.sh -s
+           make sure network is up by issuing below command 
+		>> docker ps
+        >> reset-chain-env.sh      
+        >> set-chain-env.sh  -n happy -v 1.0 -p happy -c '{"Args": ["init"]}'
+		>> source set-env.sh acme
+        >> chain.sh install
+        >> chain.sh instantiate
+        >> chain.sh list 
+           make sure "happy" chain code is instantiated
+
+Step 4:  open Couch-DB	Fauxton Dashboard in the browser
+        >> https://172-16-104-99.osz4.rdcloud.intra.hitachi.co.jp/_utils/#/database/airlinechannel_happy/_all_docs 
+          use this link to check the data in the DB
+Step 5:  
+        1st param    : registerUser (FunctionName)
+        2nd Param    : userId (integer)
+        3rd Param    : initial points    		
+        
+        >> set-chain-env.sh -i '{"Args":["registerUser","100","10"]}' && chain.sh invoke
+		>> set-chain-env.sh -i '{"Args":["registerUser","101","10"]}' && chain.sh invoke
+
+Step 6: 
+        1st param    : updateUserPoint (FunctionName) 
+        2nd Param    : userId (integer)
+        3rd Param    : points to update
+		4th param    : "add"/"sub"   (addition or subtraction) 
+
+        >> set-chain-env.sh -i '{"Args":["updateUserPoint","101","200","add"]}'  && chain.sh invoke       
+        >> set-chain-env.sh -i '{"Args":["updateUserPoint","101","50","sub"]}'  && chain.sh invoke
+Step 7: 
+        1st param    : getUserInfo (FunctionName) 
+        2nd Param    : userId (integer)     
+
+		>> set-chain-env.sh -q '{"Args":["getUserInfo","101"]}'  && chain.sh query
+
+Step 8: 
+        upload 50 users details to DB:  
+        >> uploadUsrData.sh u 
+
+        1st param    : getAllUser (FunctionName) 
+        2nd Param    : StartKey (userId) (integer) 
+        3rd param    : EndKey (userId)	(integer) 
+
+		>> set-chain-env.sh -q '{"Args":["getAllUser","100", "125"]}'  && chain.sh query 
+         
+
+Step 9: 
+        1st param    : deleteUser (FunctionName)
+        2nd Param    : userId            		
+        >> set-chain-env.sh -i '{"Args":["deleteUser","100"]}'  && chain.sh invoke
+		
+
+Step 10: 
+        1st param    : addHistory (FunctionName) 
+        2nd Param    : historyId,   3rd Param    : userId
+        4th param    : points,      5th param    : time
+        6th param    : actionId,    7th param	: status,  8th param  : details
+		
+		>> set-chain-env.sh -i '{"Args":["addHistory","307","101","90","12:10pm-July-2019","a101","Hitachi-garden","maintain trees"]}'   &&  chain.sh invoke
+
+Step 11: 
+        1st param    : getUserHistory (FunctionName) 
+        2nd Param    : userId
+        
+		>> set-chain-env.sh -q '{"Args":["getUserHistory","101"]}'  && chain.sh query
+
+Step 12: 
+        upload 50 user history details to DB:  
+        >> uploadUsrData.sh h 
+		
+        1st param    : getHistories (FunctionName) 
+        2nd Param    : StartKey (userId)
+        3rd Param    : EndKey (userId)	
+		set-chain-env.sh -q '{"Args":["getHistories","100", "120"]}'  && chain.sh query
+				
+
+Step 13: Gitlink for chain code source code
+       https://gitlab.rdcloud.intra.hitachi.co.jp/71297141/happiness-app/tree/master/chaincode/happy
+ 		

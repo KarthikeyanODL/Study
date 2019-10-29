@@ -1,0 +1,23 @@
+variables:
+  VERSION: "1.2.4"
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - echo test
+    - echo $VERSION
+    - init.sh    
+    - docker ps
+
+    - cd ~/middleware
+    - npm test
+
+  only:
+    - master
+#    - production-tmp
+  tags:
+    - test
+

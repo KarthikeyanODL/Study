@@ -1,0 +1,39 @@
+{
+  "name": "contract-app",
+  "version": "1.0.0",
+  "description": "A contract-app example node program to demonstrate using node.js SDK APIs",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js --exec babel-node --"
+  },
+  "keywords": [
+    "fabric-network sample app",
+    "contract-app node sample",
+    "v1.0 fabric nodesdk sample"
+  ],
+  "engines": {
+    "node": ">=7.0 <8.15.2",
+    "npm": ">=4.0 <6.4.2"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.3",
+    "express": "^4.17.1",
+    "express-bearer-token": "^2.1.0",
+    "express-jwt": "^5.1.0",
+    "express-session": "^1.15.2",
+    "fabric-ca-client": "^1.0.0",
+    "fabric-client": "^1.0.0",
+    "fabric-network":"^1.0.0",
+    "fs-extra": "^2.0.0",
+    "jsonwebtoken": "^7.3.0",
+    "log4js": "^0.6.38"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}

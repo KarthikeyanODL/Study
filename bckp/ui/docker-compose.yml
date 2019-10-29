@@ -1,0 +1,31 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./backend      # Dockerfile保存場所
+      dockerfile: Dockerfile    # Dockerfileファイル名
+    image: bc-services/hpay-be:0.1                  # イメージ名
+    container_name: hpay-be         # コンテナ名
+    ports:                          # ポート接続
+      - 3000:3000
+    restart: always
+    environment:
+      - SDKHOST_IP=$SDKHOST_IP
+      #- SDKHOST_IP=172.16.106.159 #production
+      #- SDKHOST_IP=172.16.106.177 #pre-production
+      #- SDKHOST_IP=192.168.0.24 #dev
+    #command: [sh, -c, npm start]
+
+  frontend:
+    build:
+      context: ./frontend/ui      # Dockerfile保存場所
+      dockerfile: Dockerfile    # Dockerfileファイル名
+    image: bc-services/hpay-fe:0.1                  # イメージ名
+    container_name: hpay-fe         # コンテナ名
+    ports:                          # ポート接続
+      - 8080:8080
+    restart: always
+    environment:
+      - VUE_APP_AUTH_URL=$VUE_APP_AUTH_URL
+      - VUE_APP_AUTH_CLIENT_ID=$VUE_APP_AUTH_CLIENT_ID
+    command: [sh, -c, npm start]  

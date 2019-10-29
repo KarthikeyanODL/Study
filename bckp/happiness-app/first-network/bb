@@ -1,0 +1,73 @@
+---
+name: first-network-org1
+version: 1.0.0
+client:
+  organization: Org1
+  connection:
+    timeout:
+      peer:
+        endorser: '300'
+
+channels:
+  mychannel:
+      orderers:
+        - orderer.example.com
+      peers:
+        peer0.org1.example.com:
+           # Roles for which this peer may be used
+          endorsingPeer: true
+          chaincodeQuery: true
+          ledgerQuery: true
+          eventSource: true
+        peer1.org1.example.com:
+          # Roles for which this peer may be used
+          endorsingPeer: false  # SDK will NOT send request for endorsements to this peer
+          chaincodeQuery: true
+          ledgerQuery: true
+          eventSource: false    # SDK will NOT allow event subscribers for this peer
+
+
+  
+organizations:
+  Org1:
+    mspid: Org1MSP
+    peers:
+    - peer0.org1.example.com
+    - peer1.org1.example.com
+    certificateAuthorities:
+    - ca.org1.example.com
+    adminPrivateKey:
+      path: /home/ubuntu/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/c931c94f99caa3ad12322f38027e89f7555d2100a754deef76b1b73f17ac54eb_sk
+    signedCert:
+      path: /home/ubuntu/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem
+ 
+orderers:
+  orderer.example.com:
+    url: grpcs://localhost:7050
+    grpcOptions:
+      ssl-target-name-override: orderer.example.com
+    tlsCACerts:
+      path: /home/ubuntu/fabric-samples/first-network/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+
+
+peers:
+  peer0.org1.example.com:
+    url: grpcs://localhost:7051
+    tlsCACerts:
+      path: /home/ubuntu/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
+    grpcOptions:
+      ssl-target-name-override: peer0.org1.example.com
+  peer1.org1.example.com:
+    url: grpcs://localhost:8051
+    tlsCACerts:
+      path: /home/ubuntu/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
+    grpcOptions:
+      ssl-target-name-override: peer1.org1.example.com
+certificateAuthorities:
+  ca.org1.example.com:
+    url: https://localhost:7054
+    caName: ca-org1
+    tlsCACerts:
+      path: /home/ubuntu/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
+    httpOptions:
+      verify: false
