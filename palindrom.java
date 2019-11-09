@@ -1,10 +1,10 @@
-
+package track;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class palindrom {
+public class App {
 
-    private static String[] getInput() {
+    private static String[] getStdin() {
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> numbers = new ArrayList<>();
         numbers.add(scanner.nextLine());
@@ -43,8 +43,8 @@ public class palindrom {
 
     public static void main(String[] args) {
         StringBuilder palindromeBuilder=new StringBuilder("");
-        String[] number = getInput();
-        System.out.println(number.length);
+        String[] number = getStdin();
+       
         for (int itr = 0, length = number.length; itr < length; itr++) {
             String input = String.format(number[itr]);
             palindromeBuilder.append(input);
