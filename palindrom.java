@@ -3,6 +3,24 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
+    
+     public static void main(String[] args) {
+        StringBuilder palindromeBuilder=new StringBuilder("");
+        String[] number = getStdin();
+       
+        for (int itr = 0, length = number.length; itr < length; itr++) {
+            String input = String.format(number[itr]);
+            palindromeBuilder.append(input);
+        }
+
+        try {
+            Integer.parseInt(palindromeBuilder.toString());
+            String longestPalindrome=searchPalindrome(palindromeBuilder.toString());
+            System.out.println(longestPalindrome);
+        }catch(Exception e){
+            System.out.println("The entered text is not an number!.");
+        }
+    }
 
     private static String[] getStdin() {
         Scanner scanner = new Scanner(System.in);
@@ -41,21 +59,5 @@ public class App {
         return longestPalindrome;
     }
 
-    public static void main(String[] args) {
-        StringBuilder palindromeBuilder=new StringBuilder("");
-        String[] number = getStdin();
-       
-        for (int itr = 0, length = number.length; itr < length; itr++) {
-            String input = String.format(number[itr]);
-            palindromeBuilder.append(input);
-        }
-
-        try {
-            Integer.parseInt(palindromeBuilder.toString());
-            String longestPalindrome=searchPalindrome(palindromeBuilder.toString());
-            System.out.println(longestPalindrome);
-        }catch(Exception e){
-            System.out.println("The entered text is not an number!.");
-        }
-    }
+   
 }
