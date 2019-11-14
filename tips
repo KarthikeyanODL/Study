@@ -1,0 +1,46 @@
+vi editor
+search - /string
+
+sudo du -h --max-depth=1
+
+find . -type f -not -name '*.gz'-delete
+
+GoLang link
+1. https://gobyexample.com/
+2. https://gophercises.com
+3. http://www.golangbootcamp.com/book/basics
+
+grep -rnw 'searchDirctry' -e 'String'
+ netstat -pant | grep "8080"
+ ps -aux  grep 8787
+ 
+ 
+ -------------------------------------k8s voting app ------------------
+ voting app
+----------
+image : dockersamples/examplevotingapp_vote
+port : 80
+
+kubectl run --generator=run-pod/v1  voting-app-pod --image=dockersamples/examplevotingapp_vote --port=80 -l app=voting
+
+worker pod
+-------------
+image: dockersamples/examplevotingapp_worker
+port: No
+
+
+
+redis
+-----
+image: redis
+port 6379
+
+postgres
+------
+image: postgres:9.4
+port: 5432
+
+result-pod
+---------
+image: dockersamples/examplevotingapp_result
+port: 80
