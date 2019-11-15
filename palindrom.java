@@ -4,23 +4,15 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        // Scanner scnaer=new Scanner(new InputStreamReader(System.in));
-        // String input = getStdin();
+       
         String[] lines = getStdin();
         StringBuilder stringBuilder=new StringBuilder("");
         for (int i = 0, l = lines.length; i < l; i++) {
             String input = String.format(lines[i]);
             stringBuilder.append(input);
-
-            //System.out.println(output);
         }
-        //System.out.println("Enter the input:");
-
-        // if(input.length()>1000000){
-        //     System.out.println("input string exceeds max length of 1000000");
-
+        
         try {
-            Integer.parseInt(stringBuilder.toString());
             String longest=longestPalindrome(stringBuilder.toString());
             System.out.println(longest);
         }catch(Exception e){
@@ -31,9 +23,9 @@ public class App {
     private static String[] getStdin() {
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> lines = new ArrayList<>();
-
+            while(scanner.hasNext()) {
             lines.add(scanner.nextLine());
-
+            }
         return lines.toArray(new String[lines.size()]);
     }
     static public String intermediatePalindrome(String s, int start, int end) {
@@ -60,7 +52,4 @@ public class App {
         }
         return longest;
     }
-
-
-
 }
