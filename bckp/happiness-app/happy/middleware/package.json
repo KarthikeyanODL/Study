@@ -35,7 +35,7 @@
     "fabric-network": "^1.4.0",
     "fs-extra": "^2.0.0",
     "jsonwebtoken": "^7.3.0",
-    "log4js": "^0.6.38",
+    "log4js": "^6.4.0",
     "mocha": "^6.2.0",
     "swagger-ui-express": "^4.0.6",
     "yamljs": "^0.3.0"
