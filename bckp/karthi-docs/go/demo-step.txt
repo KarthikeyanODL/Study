@@ -26,7 +26,7 @@ set-chain-env.sh -q '{"Args":["getEmployees"]}'
 chain.sh query
 
 3. CreateEmployee
- set-chain-env.sh -i '{"Args":["createEmployee","77","ov","10000","9","permanent","hitachi","nissan"]}'
+ set-chain-env.sh -i '{"Args":["createEmployee","77","xyz","10000","9","permanent","hitachi","nissan"]}'
  chain.sh invoke
 
 3. set-chain-env.sh -i '{"Args":["sendEmployee","1","human","hitachi"]}'
