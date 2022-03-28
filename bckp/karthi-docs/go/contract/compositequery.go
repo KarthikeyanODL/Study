@@ -20,7 +20,7 @@ const objectType = "ParentCompany~CurrentCompany~EmployeeType"
 func (contract *ContractChaincode) AddEmployeeWithCompositeKey(stub shim.ChaincodeStubInterface) peer.Response {
 	value := []byte{0x00}
 	stub.PutState(objectType, value)
-	addData(stub, 10, "ov", 10000, 9.30, "permanent", "hitachi", "hitachi")
+	addData(stub, 10, "xyz", 10000, 9.30, "permanent", "hitachi", "hitachi")
 	addData(stub, 11, "karthik", 10000, 9.30, "permanent", "hitachi", "hitachi")
 	addData(stub, 12, "nirosh", 10000, 9.30, "permanent", "hitachi", "hitachi")
 	addData(stub, 13, "hary", 10000, 9.30, "contract", "human", "hitachi")
