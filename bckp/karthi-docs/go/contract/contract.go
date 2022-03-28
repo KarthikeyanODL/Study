@@ -136,7 +136,7 @@ func (contract *ContractChaincode) createEmployee(stub shim.ChaincodeStubInterfa
 		return shim.Error("Incorrect number of arguments, required: 7")
 	}
 
-	//"createEmployee","77","ov","10000","9.30","permanent","hitachi","nissan"]
+	//"createEmployee","77","xyz","10000","9.30","permanent","hitachi","nissan"]
 
 	key := args[0]
 	employeeId, _ := strconv.Atoi(key)
