@@ -83,7 +83,7 @@ app.get("/get/employees",function(req,res){
 
 //6. create-employee
 app.post("/employee/create",function(req,res){
-  // "77","ov","10000","9","permanent","hitachi","nissan"]
+ 
 	var empname = req.body.empname;
 	var empid = req.body.empid;
 	var salary = req.body.salary;
